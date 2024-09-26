@@ -5,6 +5,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/nbproject
 .env
 .env.backup
 .env.production
@@ -19,3 +20,4 @@ yarn-error.log
 /.idea
 /.vscode
 /.zed
+/nbproject/private/
