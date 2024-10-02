@@ -1,5 +1,7 @@
 <?php
 
+// User.php
+
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -7,6 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Note[] $notes
+ */
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -45,6 +50,11 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * Get all the notes for the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function notes()
     {
         return $this->hasMany(Note::class);

@@ -1,3 +1,5 @@
+{{-- --}}
+
 <?php
 
 use App\Livewire\Actions\Logout;
@@ -33,6 +35,9 @@ new class extends Component
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('notes')" :active="request()->routeIs('notes')" wire:navigate>
+                        {{ __('Notes') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -50,9 +55,20 @@ new class extends Component
                             </div>
                         </button>
                     </x-slot>
+                    {{-- TEST DROPDOWN --}}
+                    <x-dropdown-link :href="route('profile')" wire:navigate>
+                        {{ __('Profile') }}
+                    </x-dropdown-link>
+
+                    <!-- Authentication -->
+                    <button wire:click="logout" class="w-full text-start">
+                        <x-dropdown-link>
+                            {{ __('Log Out') }}
+                        </x-dropdown-link>
+                    </button>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile')" wire:navigate>
+                        {{-- <x-dropdown-link :href="route('profile')" wire:navigate>
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -61,7 +77,7 @@ new class extends Component
                             <x-dropdown-link>
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
-                        </button>
+                        </button> --}}
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -83,6 +99,9 @@ new class extends Component
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('notes')" :active="request()->routeIs('notes')" wire:navigate>
+                {{ __('Notes') }}
             </x-responsive-nav-link>
         </div>
 

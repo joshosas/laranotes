@@ -12,4 +12,12 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::view('notes', 'notes.index')
+    ->middleware(['auth'])
+    ->name('notes');
+
+Route::view('notes/create', 'notes.create')
+    ->middleware(['auth'])
+    ->name('notes.create');
+
+require __DIR__ . '/auth.php';
